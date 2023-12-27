@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvano Formulário</title>
+</head>
+<body>
+    <main>
+        <h2>Formulário para cadastro de novo usuário</h2>
+        <form action="https://658c364c859b3491d3f5b9eb.mockapi.io/Exercicio2HTML" method="post">
+            <!-- Legenda e campo input para nome-->
+            <label for="nome">Nome:
+                <input name="Nome" id="Nome" type="text" placeholder="Digite seu nome" required autofocus/>
+            </label>
+            <br><br>
+            <!-- Legenda e campo input para E-mail.-->
+            <label for="Email">Email:
+                <input name="E-mail" id="E-mail" type="email" placeholder="Digite seu Email" required />
+            </label>
+            <br><br>
+            <!-- Legenda e campo input para Data de nascimento.-->
+            <label for="born">Nascimento:
+                <input name="Data_Nascimento" id="Data_Nascimento" type="date" placeholder="Digite sua data de Nascimento" required />
+            </label>
+            <br><br>
+            <!-- Legenda e campo input para endereço-->
+            <label for="endereço">Endereço:
+                <input name="Endereco" id="Endereco" type="text" placeholder="Digite seu endereço" required />
+            </label>
+            <br><br>
+            <!-- Legenda e campo input para Nacionalidade-->
+            <label for="nacionalidade">Nacionalidade:
+                <input name="Nacionalidade" id="Nacionalidade" type="text" placeholder="Digite sua nacionalidade" required />
+            </label>
+            <br><br>
+            <label for="phone">Telefone:
+                <input name="Telefone" id="Telefone" type="text" placeholder="Digite seu telefone" required />
+            </label>
+            <br><br>
+            <!-- Legenda e campo input para Ocupação-->
+            <label for="ocupação">Ocupação:
+                <select name="Ocupacao" id="Ocupacao">
+                    <option value="Estudante">Estudante</option>
+                    <option value="Empregado CLT">Empregado CLT</option>
+                    <option value="Desenvolvedor WEB">Desenvolvedor WEB</option>
+                    <option value="MEI">MEI</option>
+                </select>
+            </label>
+            <br>
+            <input type="submit" value="Enviar" />
+        </form>
+    </main>
+</body>
+</html>
