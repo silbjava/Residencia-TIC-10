@@ -1,0 +1,12 @@
+const fs = require('fs').promises
+
+const usersString = fs.readFile('./users.csv', 'utf-8', 'r')
+
+const addressString = fs.readFile('./address.csv', 'utf-8', 'r')
+console.log(addressString)
+
+usersString.then((usersList) => console.log(usersList +'\n'))
+
+addressString.then((addressList) =>console.log(addressList))
+
+
