@@ -14,7 +14,7 @@ const il2 = lerLinha.createInterface({
     input: as.createReadStream('novaLista.csv')
 })
 // DATA PRINCIPAL P/ NEW DATA -- Preenche a nova lista com dados da lista original
-preencher = () =>{
+const preencher = () =>{
     let situacao = false
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
@@ -32,7 +32,7 @@ preencher = () =>{
     )
 }
 // REMOVE O USUÁRIO SELECIONADO.-----(REMOVER)
-remover = (v_email) =>{
+const remover = (v_email) =>{
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
         if(newCSV[1] !== v_email){
@@ -42,7 +42,7 @@ remover = (v_email) =>{
      )
 }
 //FUNÇÃO QUE LISTA OS USUÁRIOS CADASTRADOS --- (LISTAR)
-listar = ( ) =>{
+const listar = ( ) =>{
     console.clear()
     console.log('*************************** USUÁRIOS ******************************\n')
     il2.on('line', (newData) =>{
@@ -52,7 +52,7 @@ listar = ( ) =>{
     )
 }
 // FUNÇÃO PARA ADICONAR UM USUÁRIO -- (ADICIONAR)
-adicionar = (i_nome, i_email, i_telefone) =>{
+const adicionar = (i_nome, i_email, i_telefone) =>{
     let cadastrado = false
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
@@ -66,9 +66,21 @@ adicionar = (i_nome, i_email, i_telefone) =>{
         escrita.write(`${i_nome}, ${i_email}, ${i_telefone}\n`)
      }
 }
-//FUNÇÃO QUE ALTERA AS INFORMAÇÕES DE UM CADASTRADO
+//FUNÇÃO QUE ALTERA AS INFORMAÇÕES DE UM CADASTRADO -- (EDITAR/ALTERAR)
+const alterar = (v_email) =>{
+    il2.on('line', (newData) =>{
+        let newCSV = newData.split(',')
+        if(newCSV[1]=== v_email){
+            console.clear()
+            newCSV = 
+            console.log('Cadastro alterado!\n'+`Nome: ${newCSV[0]}\n`+
+        `Email: ${newCSV[1]}\n`+`Telefone: ${newCSV[2]}`)
+        }
+    }
+     )
+}
 //FUNÇÃO QUE VERIFICA A SITUAÇÃO DE UM DETERMINADO CADASTRO (ENONTRAR)
-verificar = (v_email) =>{
+const verificar = (v_email) =>{
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
         if(newCSV[1]=== v_email){
@@ -79,6 +91,4 @@ verificar = (v_email) =>{
     }
      )
 }
-preencher ()
-adicionar('silvano', 'sil@irede.com', 85986321267)
-listar()
+module.exports = { preencher, remover, listar, adicionar, alterar, verificar}
