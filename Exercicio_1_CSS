@@ -1,37 +1,13 @@
-<div class="exercicio-e1">
-    <style>
-        div{
-            order: 2px;
-            padding: 4px;
-            border-radius: 8px;
-            color: white;
-            background-color: #3730a3;
-
-        }
-        h3{
-            
-        }
-        dl{
-            border: 2px solid #706da3;
-            border-radius: 8px;
-            padding: 10px;
-            background-color: #706da3;
-            width: 30%;
-        };
-        dt{
-            font-weight: bold;
-            
-        }
-        </style>
-        
-    <h3 > Aula CSS - Restic 10</h3>
-    <p> Nessa aula, estamos aplicando o estilo e aprendendo um pouco mais sobre box-model</p>
-    <dl>
-    <dt>  estilo aplicado</dt>
+<link rel="stylesheet" href="estilo.css">
+<div class="exercicio-e1 div">        
+    <h3 class="h3"> Aula CSS - Restic 10</h3>
+    <p class="p"> Nessa aula, estamos aplicando o estilo e aprendendo um pouco mais sobre box-model</p>
+    <dl class="dl">
+    <dt> <b>Estilo aplicado</b> </dt>
     <dd>Espaçamento interno da caixa: 16px</dd>
     <dd>Margens da caixa: 4px</dd>
-    <dd>cor de fundo: #t3730a3</dd>
-    <dd>cor do texto do título: #f1f5fo </dd>
+    <dd>cor de fundo: #3730a3</dd>
+    <dd>cor do texto do título: #f1f5f9 </dd>
     <dd> Cor do texto restante: </dd>
     <dd>Arredondamento das bordas da caixa: 8px</dd>
     <dd> Altura da linha de todos os elementos: 120%</dd>
