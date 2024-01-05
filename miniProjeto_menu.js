@@ -1,6 +1,8 @@
 const form = require("prompt-sync")
 const entrada = form()
 const as = require('fs')
+
+
 const gerenciar = ()=> {
 console.log('MENU DE GERENCIAMENTO DE DADOS.')
 console.log('Selecione uma das opções abaixo:')
@@ -26,16 +28,11 @@ while(true){
         break
    
     }
-    // if(opcao == 1||opcao==2||opcao==3||opcao==4||opcao==5||opcao==6){
-        
-    // }else{
-    //     console.log('Opção Invalida! - Digite uma das opção anteriores.')
-    // }
+    if(opcao == 6){
+        console.clear()
+        break
+    }
+}
+}
 
-if(opcao == 6){
-    console.clear()
-    break
-}
-}
-}
-gerenciar()
+exports.main = gerenciar
