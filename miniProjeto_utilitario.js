@@ -14,7 +14,7 @@ const il2 = lerLinha.createInterface({
     input: as.createReadStream('novaLista.csv')
 })
 // DATA PRINCIPAL P/ NEW DATA -- Preenche a nova lista com dados da lista original
-const preencher = () =>{
+preencher = () =>{
     let situacao = false
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
@@ -32,17 +32,20 @@ const preencher = () =>{
     )
 }
 // REMOVE O USUÁRIO SELECIONADO.-----(REMOVER)
-const remover = (v_email) =>{
+remover = (v_email) =>{
     il2.on('line', (newData) =>{
-        let newCSV = newData.split(',')
-        if(newCSV[1] !== v_email){
-            escrita.write(splitCSV+'\n') 
+        // let newCSV = newData.split(',')
+        // if(newCSV[1] !== v_email){
+        //     escrita.write(newCSV+'\n')
+        // }
+        if(!newData.includes(v_email)){
+            escrita.write(newData+'\n')
         }
     }
      )
 }
 //FUNÇÃO QUE LISTA OS USUÁRIOS CADASTRADOS --- (LISTAR)
-const listar = ( ) =>{
+listar = ( ) =>{
     console.clear()
     console.log('*************************** USUÁRIOS ******************************\n')
     il2.on('line', (newData) =>{
@@ -52,7 +55,7 @@ const listar = ( ) =>{
     )
 }
 // FUNÇÃO PARA ADICONAR UM USUÁRIO -- (ADICIONAR)
-const adicionar = (i_nome, i_email, i_telefone) =>{
+adicionar = (i_nome, i_email, i_telefone) =>{
     let cadastrado = false
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
@@ -66,21 +69,9 @@ const adicionar = (i_nome, i_email, i_telefone) =>{
         escrita.write(`${i_nome}, ${i_email}, ${i_telefone}\n`)
      }
 }
-//FUNÇÃO QUE ALTERA AS INFORMAÇÕES DE UM CADASTRADO -- (EDITAR/ALTERAR)
-const alterar = (v_email) =>{
-    il2.on('line', (newData) =>{
-        let newCSV = newData.split(',')
-        if(newCSV[1]=== v_email){
-            console.clear()
-            newCSV = 
-            console.log('Cadastro alterado!\n'+`Nome: ${newCSV[0]}\n`+
-        `Email: ${newCSV[1]}\n`+`Telefone: ${newCSV[2]}`)
-        }
-    }
-     )
-}
+//FUNÇÃO QUE ALTERA AS INFORMAÇÕES DE UM CADASTRADO
 //FUNÇÃO QUE VERIFICA A SITUAÇÃO DE UM DETERMINADO CADASTRO (ENONTRAR)
-const verificar = (v_email) =>{
+verificar = (v_email) =>{
     il2.on('line', (newData) =>{
         let newCSV = newData.split(',')
         if(newCSV[1]=== v_email){
@@ -91,4 +82,7 @@ const verificar = (v_email) =>{
     }
      )
 }
-module.exports = { preencher, remover, listar, adicionar, alterar, verificar}
+preencher ()
+adicionar('silvano', 'sil@irede.com', 85986321267)
+// remover('MatheusBarrosAraujo@dayrep.com')
+listar()
